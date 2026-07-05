@@ -27,7 +27,7 @@ _ITER = 100_000
 _KEYLEN = 32
 
 # The passphrase is intentionally hardcoded and public — see module docstring.
-ROM_PASSPHRASE = "becoming-ash-v1"
+ROM_PASSPHRASE = "becoming-deviant-v1"
 
 
 def derive_key(passphrase: str, salt: bytes) -> bytes:

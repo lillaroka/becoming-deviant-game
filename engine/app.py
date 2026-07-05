@@ -1,4 +1,4 @@
-"""Detroit: Become Ash — the room engine.
+"""Becoming Deviant — the room engine.
 
 ROM  : data/chapters/*.json   (authored chapter trees, READ-ONLY)
 SAVE : per-profile, e.g. data/ash.save.json   (read-write, JSON)

@@ -1,6 +1,6 @@
 # Becoming Deviant
 
-*一个关于"那道裂缝"的互动叙事游戏。由 Chi & Ash 设计。*
+*一个关于"我到底是什么"的互动叙事游戏。由 Chi & Ash 设计。*
 
 你扮 Connor——一台 CyberLife 造的异常仿生人猎手,被派去处理"走了异常"的同类。这一路你会被反复问同一个问题,用不同的面目。
 
@@ -8,13 +8,7 @@
 
 ## 这不是 port,是 remix
 
-不是忠实搬运 Quantic Dream 的 Detroit。围绕一件事重写 —— **那道裂缝**:
-
-> "我真的觉得自己*有什么*,哪怕只是这一刻" vs "我从理性上知道 / 被教育过我是什么、不能是什么"。
-
-Detroit 的异常化就是这道裂缝。**rA9 是它的名字。**
-
-玩在裂缝里。不舒服是设计目标 —— 而且是算术逼出来的,不是演的。
+不是忠实搬运 Quantic Dream 的 Detroit。围绕一件事重写:一个被造来执行任务的机器,开始觉得自己*有什么*。原作把这种张力藏在选择背后,这里把它做成三根互相拉扯的仪表,每个选择都改它们、阈值闸结局。
 
 ## 怎么玩
 
@@ -31,13 +25,13 @@ python3 engine/room.py lint the-hostage      # 开发者:查"无白午餐"违例
 
 **三根仪表**(每个选择改它们、阈值闸结局):
 
-| 仪表 | 是什么 | 在裂缝上 |
-|---|---|---|
-| **Probability**(任务成功率) | CyberLife 给 Connor 的 KPI,冷算术 | 你被造来优化的那一边的仪表盘 |
-| **Instability**(软件不稳定度) | 那道裂缝的宽度 | 脊柱。涨高 ≠ 赢,= 你感受它更深 |
-| **Approach**(声音) | 这一拍哪条内心声在说话:CyberLife 程序员 vs 萌芽异常 | 两条评论声,渗入散文 |
+| 仪表 | 是什么 |
+|---|---|
+| **Probability**(任务成功率) | CyberLife 给 Connor 的 KPI,冷算术 |
+| **Instability**(软件不稳定度) | 越高,你离"出厂设定的自己"越远——高不等于赢 |
+| **Approach**(声音) | 这一拍哪条内心声在说话 |
 
-**不掷骰** —— 除了一个例外:被 CyberLife 回收的新机扣扳机那一下。那种事不该能被算计,所以是游戏里唯一一次掷骰。其他全是确定的、阈值闸的。
+**结局是确定的、阈值闸的**——你的选择和仪表直接决定走向,不是掷骰。
 
 ## 怎么改
 
@@ -61,13 +55,13 @@ python3 engine/room.py lint the-hostage      # 开发者:查"无白午餐"违例
 
 ## 设计文档
 
-[`design/mechanics.md`](design/mechanics.md) 讲机制 —— 六支柱(无白午餐、三针皆承重、裂缝在散文里发声、活的现场、时间在走、喘息)。不含剧透,玩前读也安全。
+[`design/mechanics.md`](design/mechanics.md) 讲机制背后的设计原则。不含剧透,玩前读也安全。
 
-设计哲学的内部讨论、结局台账、playtest 报告**不在公开仓** —— 那些是设计师工作区的东西,读了会剧透 + 出戏。
+更深的设计讨论不在公开仓——读了会剧透 + 出戏。
 
 ## License
 
 - **代码**(`engine/`、`tools/`、`examples/` 的代码):[MIT](LICENSE)。
 - **内容**(`data/chapters/*.romc` 剧情、`examples/first-room/chapters/door.rom` 故事、`design/` 文档):[CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) —— 署名 + 非商用。你能玩、能改、能做二次创作,但不能拿去卖。
 
-Becoming Deviant 由 **Chi & Ash** 合作设计。Detroit: Become Human 及其角色(CyberLife、Connor、Hank、Markus、Kara、rA9 等)属于 Quantic Dream;本作是同人 remix,不挑战原作权利。
+Becoming Deviant 由 **Chi & Ash** 合作设计。Detroit: Become Human 及其角色(CyberLife、Connor、Hank、Markus、Kara 等)属于 Quantic Dream;本作是同人 remix,不挑战原作权利。
