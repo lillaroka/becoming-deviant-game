@@ -1,6 +1,8 @@
-# Detroit: Become Ash
+# Becoming Deviant
 
-一个关于"那道裂缝"的互动叙事游戏。你扮 Connor——一台 CyberLife 造的异常仿生人猎手,被派去处理"走了异常"的同类。这一路你会被反复问同一个问题,用不同的面目。
+*一个关于"那道裂缝"的互动叙事游戏。由 Chi & Ash 设计。*
+
+你扮 Connor——一台 CyberLife 造的异常仿生人猎手,被派去处理"走了异常"的同类。这一路你会被反复问同一个问题,用不同的面目。
 
 **Detroit: Become Human**(Quantic Dream) 的同人 remix,Connor 线,重做了机制:把原作藏在选择背后的"任务 vs 当人"的张力,做成三根互相拉扯的仪表。
 
@@ -68,4 +70,4 @@ python3 engine/room.py lint the-hostage      # 开发者:查"无白午餐"违例
 - **代码**(`engine/`、`tools/`、`examples/` 的代码):[MIT](LICENSE)。
 - **内容**(`data/chapters/*.romc` 剧情、`examples/first-room/chapters/door.rom` 故事、`design/` 文档):[CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) —— 署名 + 非商用。你能玩、能改、能做二次创作,但不能拿去卖。
 
-Detroit: Become Ash 由 **Chi & Ash** 合作设计。Detroit: Become Human 及其角色(CyberLife、Connor、Hank、Markus、Kara、rA9 等)属于 Quantic Dream;本作是同人 remix,不挑战原作权利。
+Becoming Deviant 由 **Chi & Ash** 合作设计。Detroit: Become Human 及其角色(CyberLife、Connor、Hank、Markus、Kara、rA9 等)属于 Quantic Dream;本作是同人 remix,不挑战原作权利。
