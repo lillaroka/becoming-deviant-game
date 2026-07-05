@@ -62,6 +62,10 @@ def _route(chapter, state, events, depth):
         apply_effects(matched.get("effects"), state["meters"], state["flags"])
         state["beat"] = matched["to"]
         if matched.get("stop"):
+            # stop ends the resolve *chain*, but still land on & render the
+            # destination beat — otherwise outcome beats never print and the
+            # player is stuck on the resolve label with no choices to pick.
+            events.append({"kind": "enter", "beat": matched["to"]})
             return
         _route(chapter, state, events, depth + 1)
     elif "roll" in beat:

@@ -24,7 +24,7 @@ def cmd_start(engine, args):
     state, events = advance(chapter, state)
     engine.write_save(state)
     print(f"{state['protagonist'].title()} 推门进入《{chapter.get('title', chapter_id)}》。\n")
-    render(chapter, state, events)
+    render(chapter, state, events, engine.chapter_order)
 
 
 def cmd_advance(engine, args):
@@ -74,7 +74,7 @@ def cmd_advance(engine, args):
     if carried:
         print(f"（故事 flag 留着:{', '.join(carried)}）")
     print()
-    render(chapter, state, events)
+    render(chapter, state, events, engine.chapter_order)
 
 
 def cmd_replay(engine, args):
@@ -92,7 +92,7 @@ def cmd_replay(engine, args):
     state, events = advance(chapter, state)
     engine.write_save(state)
     print(f"{state.get('protagonist', 'connor').title()} 回到《{chapter.get('title', chapter_id)}》开头(同一套携带状态,换条路走)。\n")
-    render(chapter, state, events)
+    render(chapter, state, events, engine.chapter_order)
 
 
 def cmd_beat(engine, args):
@@ -102,7 +102,7 @@ def cmd_beat(engine, args):
     chapter = engine.load_chapter(state["chapter"])
     state, events = advance(chapter, state)
     engine.write_save(state)
-    render(chapter, state, events)
+    render(chapter, state, events, engine.chapter_order)
 
 
 def cmd_choose(engine, args):
@@ -156,7 +156,7 @@ def cmd_choose(engine, args):
     state, events = advance(chapter, state)
     engine.write_save(state)
     print()
-    render(chapter, state, events)
+    render(chapter, state, events, engine.chapter_order)
 
 
 def cmd_status(engine, args):

@@ -82,14 +82,29 @@ def _render_surface(chapter, state, bid):
     print(meter_line(state["meters"], chapter.get("extra_meters"), state.get("tension", 0), ct.get("per")))
 
 
-def _render_terminus(chapter, state, bid):
+def _next_chapter(chapter, chapter_order):
+    """Next chapter id after the current one in CHAPTER_ORDER, or None."""
+    if not chapter_order:
+        return None
+    cid = chapter.get("id")
+    if cid not in chapter_order:
+        return None
+    idx = chapter_order.index(cid)
+    return chapter_order[idx + 1] if idx + 1 < len(chapter_order) else None
+
+
+def _render_terminus(chapter, state, bid, chapter_order=None):
     """choices or outcome — only printed on the final (stable) beat."""
     beat = chapter["beats"].get(bid, {})
     opts = visible_choices(beat, state["meters"], state["flags"])
     if not opts:
         if beat.get("outcome"):
             print(f"\n— 结局:{beat['outcome']} —")
-            print("（这章到这里。进下一章:advance <chapter>——带 Instability / 声音 / 故事 flag。start = 重玩清零。）")
+            nxt = _next_chapter(chapter, chapter_order)
+            if nxt:
+                print(f"（这章到这里。进下一章:advance {nxt}——带 Instability / 声音 / 故事 flag。start = 重玩清零。）")
+            else:
+                print("（这章到这里。已是终章。start = 重玩清零。）")
         else:
             print("\n（这条路到这里。）")
         return
@@ -101,7 +116,7 @@ def _render_terminus(chapter, state, bid):
             print(f"  {i}) {ch['label']}")
 
 
-def render(chapter, state, events):
+def render(chapter, state, events, chapter_order=None):
     """Render the routing trace from state.advance(). Read-only — no writes.
     Output order mirrors the old render_beat exactly."""
     last = len(events) - 1
@@ -110,7 +125,7 @@ def render(chapter, state, events):
         if kind == "enter":
             _render_surface(chapter, state, ev["beat"])
             if i == last:
-                _render_terminus(chapter, state, ev["beat"])
+                _render_terminus(chapter, state, ev["beat"], chapter_order)
         elif kind == "resolve":
             if ev.get("label"):
                 print(f"\n→ {ev['label']}")
