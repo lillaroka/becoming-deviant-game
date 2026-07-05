@@ -16,8 +16,9 @@ def voice_label(ap):
 
 def meter_line(m, extra_labels=None, tension=None, tension_per=None):
     inst = m["instability"]
-    bar = "◌" * min(int(inst / 5), 10) if inst > 0 else "·"
-    s = f"〔概率 {m['probability']}% · 不稳定 {inst} {bar} · 声音: {voice_label(m['approach'])}"
+    bar = "◌" * min(int(inst / 5), 10)    # one ◌ per 5 instability; <5 → none yet
+    inst_seg = f"不稳定 {inst}" + (f" {bar}" if bar else "")
+    s = f"〔概率 {m['probability']}% · {inst_seg} · 声音: {voice_label(m['approach'])}"
     extra = extra_labels or {}
     for k in m:
         if k not in ("probability", "instability", "approach", "cyberlife_strikes") and k in extra:

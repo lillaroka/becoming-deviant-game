@@ -23,7 +23,7 @@ def cmd_start(engine, args):
     chapter = engine.load_chapter(chapter_id)
     state, events = advance(chapter, state)
     engine.write_save(state)
-    print(f"{engine.profile_name} 推门进入《{chapter.get('title', chapter_id)}》。\n")
+    print(f"{state['protagonist'].title()} 推门进入《{chapter.get('title', chapter_id)}》。\n")
     render(chapter, state, events)
 
 
@@ -59,7 +59,7 @@ def cmd_advance(engine, args):
     engine.write_checkpoint(state)        # snapshot the carry-in START state (pre-route)
     state, events = advance(chapter, state)
     engine.write_save(state)
-    print(f"{engine.profile_name} 从《{prev_chapter.get('title', prev['chapter'])}》进入《{chapter.get('title', chapter_id)}》。")
+    print(f"{state['protagonist'].title()} 从《{prev_chapter.get('title', prev['chapter'])}》进入《{chapter.get('title', chapter_id)}》。")
     if state.get("carried_recycled"):
         print("（上一台 Connor 被 CyberLife 回收(3/3 strikes)——新机上线:Instability / 声音 / Hank 关系 归零。故事 flag 留着。）")
     elif state.get("carried_died"):
@@ -91,7 +91,7 @@ def cmd_replay(engine, args):
     chapter = engine.load_chapter(chapter_id)
     state, events = advance(chapter, state)
     engine.write_save(state)
-    print(f"{engine.profile_name} 回到《{chapter.get('title', chapter_id)}》开头(同一套携带状态,换条路走)。\n")
+    print(f"{state.get('protagonist', 'connor').title()} 回到《{chapter.get('title', chapter_id)}》开头(同一套携带状态,换条路走)。\n")
     render(chapter, state, events)
 
 
@@ -165,7 +165,7 @@ def cmd_status(engine, args):
         print("房间是空的。"); return
     chapter = engine.load_chapter(state["chapter"])
     ct = chapter.get("tension") or {}
-    print(f"Profile: {engine.profile_name}  ·  《{chapter.get('title', state['chapter'])}》")
+    print(f"《{chapter.get('title', state['chapter'])}》  ·  {state.get('protagonist', 'connor').title()}")
     print(meter_line(state["meters"], chapter.get("extra_meters"), state.get("tension", 0), ct.get("per")))
     if ct.get("per"):
         labels = {"probability": "概率", "instability": "不稳定", "approach": "声音"}

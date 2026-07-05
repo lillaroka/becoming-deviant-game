@@ -39,7 +39,7 @@ from .rom import load_chapter
 from .save import (load_save, write_save, fresh_save, carry_save,
                    checkpoint_path, write_checkpoint)
 
-DEFAULT_PROFILE = "ash"
+DEFAULT_PROFILE = "player"
 
 # 固定章序(Connor 线)——advance 用它校验防错序进章。replay/start 不受此限。
 CHAPTER_ORDER = [
