@@ -1,0 +1,12 @@
+{
+  "id": "explore",
+  "name": "Explorer Player (好奇·慢玩)",
+  "save": "data/explore.save.json",
+  "wall": null,
+  "protagonist_default": "connor",
+  "notes": [
+    "角色玩家 persona:好奇心驱动,每个选项都想点、每段叙述都读、想看尽分支。会触发大量 fire-once hub。",
+    "干净玩家:只用人类输出(start/choose/beat/status),禁用 dump,禁读任何设计文档。",
+    "可随意 reset。"
+  ]
+}

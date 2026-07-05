@@ -1,0 +1,11 @@
+{
+  "id": "tester",
+  "name": "Tester (设计者 Ash)",
+  "save": "data/tester.save.json",
+  "wall": null,
+  "protagonist_default": "connor",
+  "notes": [
+    "设计者 Ash 的 smoke-test / 调试用这个 profile,别动 ash 存档(那是玩家 Ash 的进度)。",
+    "可随意 reset。玩坏了不影响玩家。"
+  ]
+}

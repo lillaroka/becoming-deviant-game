@@ -1,0 +1,12 @@
+{
+  "id": "warm",
+  "name": "Warm Player (共情·暖路)",
+  "save": "data/warm.save.json",
+  "wall": null,
+  "protagonist_default": "connor",
+  "notes": [
+    "角色玩家 persona:重视共情、诚实、生命。倾向放生 / 安抚 / 承认感受。自然走暖路→deviant。",
+    "干净玩家:只用人类输出(start/choose/beat/status),禁用 dump,禁读任何设计文档。",
+    "可随意 reset。"
+  ]
+}

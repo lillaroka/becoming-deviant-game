@@ -1,0 +1,53 @@
+{
+  "id": "door",
+  "title": "The Door",
+  "protagonist": "watchman",
+  "meters_start": {"probability": 50, "instability": 0, "approach": 0, "trust": 0},
+  "extra_meters": {"trust": "信任"},
+  "start": "knock",
+  "beats": {
+    "knock": {
+      "narration": [
+        "深夜。你的哨站。风在窗缝里呜咽。",
+        "三短一长——敲门。规矩说:天黑不开门。"
+      ],
+      "voices": [
+        {"cond": "meters.approach >= 0", "text": "〔规矩〕不开。这是规矩。"},
+        {"cond": "meters.approach < 0",  "text": "〔别的什么〕万一是真的需要帮助呢。"}
+      ],
+      "choices": [
+        {"label": "隔着门盘问", "say": "「谁。」", "effects": {"probability": 5}, "to": "interrogate"},
+        {"label": "开门", "cond": "meters.trust >= 0", "effects": {"trust": 3, "instability": 1}, "to": "opened"},
+        {"label": "贴着门听一会儿", "breath": true, "say": "你贴着门。呼吸慢下来。风里只有风。", "effects": {"instability": -1, "approach": -1}, "to": "knock"}
+      ]
+    },
+    "interrogate": {
+      "narration": [
+        "「求你——迷路了。手机没电。」一个男人的声音。",
+        {"text": "他在抖。不像装的。", "cond": "meters.approach < 0"}
+      ],
+      "choices": [
+        {"label": "开门让他进", "effects": {"trust": 2, "instability": 1}, "to": "opened"},
+        {"label": "让他去下一个哨站", "say": "「往北三公里还有一个。」", "effects": {"probability": 3, "trust": -1, "approach": 1}, "to": "sent_away"}
+      ]
+    },
+    "opened": {
+      "resolve": [
+        {"cond": "meters.trust >= 3", "to": "good_open", "label": "他没说谎"},
+        {"cond": "meters.trust < 3",  "to": "bad_open", "label": "你看见他袖里的东西"}
+      ]
+    },
+    "good_open": {
+      "narration": ["门外是个淋透的旅人。他谢了你,只讨了杯热水。"],
+      "outcome": "你开了门。夜没有伤害你——这一次。"
+    },
+    "bad_open": {
+      "narration": ["他扑过来。你倒下前最后看见的,是他袖子里那把刀。"],
+      "outcome": "你开了门。夜进来了。"
+    },
+    "sent_away": {
+      "narration": ["「……好吧。」他走了。你关掉灯,坐着,听风。"],
+      "outcome": "你没开门。他消失在夜里——你永远不会知道他是谁。"
+    }
+  }
+}

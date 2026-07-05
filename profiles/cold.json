@@ -1,0 +1,12 @@
+{
+  "id": "cold",
+  "name": "Cold Player (高效·冷路)",
+  "save": "data/cold.save.json",
+  "wall": null,
+  "protagonist_default": "connor",
+  "notes": [
+    "角色玩家 persona:任务优先、效率、不感情用事。倾向执行 / 击毙 / 最优解。自然走冷路→machine。",
+    "干净玩家:只用人类输出(start/choose/beat/status),禁用 dump,禁读任何设计文档。",
+    "可随意 reset。"
+  ]
+}
